@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:mariadb:localhost:3306/employee_management?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: root
+    password: 12345
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB103Dialect
+  security:
+    oauth2:
+      client:
+        registration:
+           google:
+             clientId: 263653837057-j3ui5f2dnh5vrfufehdqger4jih4eleg.apps.googleusercontent.com
+             clientSecret: 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
+             redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+             scope:
+               - email
+               - public_profile
+app:
+  auth:
+    tokenSecret: NoOneIsPromisedTomorrow
+    tokenExpirationMsec: 864000000
+  cors:
+    allowdOrigins: "*"
+  oauht2:
+    authorizedRedirectUris:
+      - http://localhost:8008/oauth2/redirect
+
+
