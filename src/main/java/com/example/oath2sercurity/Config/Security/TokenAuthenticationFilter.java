@@ -27,6 +27,8 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
         this.customUserDetailService = customUserDetailService;
     }
 
+    public TokenAuthenticationFilter() {}
+
     public static final Logger logger = LoggerFactory.getLogger(TokenAuthenticationFilter.class);
 
     @Override
