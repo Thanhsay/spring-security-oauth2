@@ -20,7 +20,8 @@ public class UserPrincipal implements OAuth2User, UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
     private Map<String, Object> attributes;
 
-    public UserPrincipal(String id, String name, String userName, String passWord, Collection<? extends GrantedAuthority> authorities) {
+    public UserPrincipal(String id, String name, String userName,
+                         String passWord, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.name = name;
         this.userName = userName;
@@ -29,7 +30,8 @@ public class UserPrincipal implements OAuth2User, UserDetails {
     }
 
     public static UserPrincipal create(User user) {
-        List<GrantedAuthority> authorities = user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getRoleName().name())).collect(Collectors.toList());
+        List<GrantedAuthority> authorities = user.getRoles().stream()
+                .map(role -> new SimpleGrantedAuthority(role.getRoleName().name())).collect(Collectors.toList());
         return
                 new UserPrincipal(
                         user.getId(),

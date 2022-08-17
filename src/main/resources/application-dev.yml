@@ -30,6 +30,6 @@ app:
     allowdOrigins: "*"
   oauht2:
     authorizedRedirectUris:
-      - http://localhost:8008/oauth2/redirect
+      - http://localhost:3000/oauth2/redirect
 
 
